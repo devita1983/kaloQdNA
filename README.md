@@ -1,6 +1,6 @@
 
 
-### 🧬 Py2DNA: Quantum-Enabled DNA Compiler - KaloQdNA - Compilador de Lógica Molecular
+### 🧬 Py2DNA: Quantum-Enabled DNA Compiler - KaloQdNA - Lógica Molecular
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org)
 [![Qiskit](https://img.shields.io/badge/Quantum-Qiskit-6133BD)](https://qiskit.org)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
