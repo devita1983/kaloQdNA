@@ -1,0 +1,21 @@
+
+{
+  "steps": [
+    {
+      "name": "quantum_annealing",
+      "tool": "IBMQ_Jakarta",
+      "params": {
+        "sequence": "ACGT",
+        "shots": 1024
+      }
+    },
+    {
+      "name": "dna_synthesis",
+      "enzyme": "Polymerase",
+      "conditions": {
+        "temp": "72°C",
+        "time": "30s"
+      }
+    }
+  ]
+}

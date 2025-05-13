@@ -1,0 +1,8 @@
+
+graph LR
+    A[Misturar gRNA + Cas9] --> B[Incubar 15min]
+    B --> C[Adicionar à amostra]
+    C --> D[Incubar 1h@37°C]
+    D --> E[Verificar corte via gel]
+
+    

@@ -1,0 +1,41 @@
+
+[project]
+name = "py2dna"
+version = "0.1.0"
+description = "Compiler Python to DNA with Quantum Optimization"
+authors = [
+    { name = "Seu Nome", email = "seu@email.com" }
+]
+dependencies = [
+    "biopython>=1.80",
+    "qiskit>=0.44",          # Para computação quântica
+    "qiskit-algorithms>=0.2",# Algoritmos como QAOA
+    "matplotlib>=3.7",       # Visualização
+    "opencv-python>=4.5"     # Para análise de imagens (protocolos)
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "ipython>=8.0",
+    "jupyter>=1.0"
+]
+
+[build-system]
+requires = ["setuptools>=65.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+
+cat <<EOT > pyproject.toml
+[project]
+name = "py2dna"
+version = "0.1.0"
+requires-python = ">=3.8"
+dependencies = [
+    "biopython>=1.80",
+    "matplotlib>=3.7"
+]
+EOT

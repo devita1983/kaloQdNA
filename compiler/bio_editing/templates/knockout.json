@@ -1,0 +1,26 @@
+{
+  "dna_sequences": [
+    {
+      "name": "gRNA_1",
+      "sequence": "ATGTCGACCTAGGTGTTTTAGAGCTAGAAATAGCAAGTTAAAATAAGGCTAGTCCG",
+      "type": "ssDNA"
+    }
+  ],
+  "protocol": [
+    {
+      "step": "complex_formation",
+      "components": ["gRNA_1", "Cas9"],
+      "time": "15 min",
+      "temp": "25°C"
+    },
+    {
+      "step": "cleavage",
+      "target": "ATGTCGACCTAGGT",
+      "conditions": {
+        "buffer": "NEB 3.1",
+        "temp": "37°C",
+        "time": "1h"
+      }
+    }
+  ]
+}

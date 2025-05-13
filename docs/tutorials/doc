@@ -1,0 +1,147 @@
+
+
+py2dna/
+├── venv/                   # Pasta do ambiente virtual (gerada automaticamente)
+├── compiler/
+│   ├── __init__.py
+│   ├── backend/
+│   │   ├── __init__.py
+│   │   ├── dna_generator.py
+│   │   ├── reaction_scheduler.py
+│   │   └── circuit_manager.py
+│   ├── frontend/
+│   │   ├── __init__.py
+│   │   └── parser.py
+│   └── utils/
+│       ├── __init__.py
+│       ├── constants.py
+│       └── vienna_integration.py
+├── simulations/
+│   ├── examples/
+│   │   └── integrated_example.py
+│   └── notebooks/
+│       ├── logic_gates.ipynb
+│       └── xor_example.ipynb
+├── tests/
+│   ├── backend/
+│   │   ├── __init__.py
+│   │   └── test_scheduler.py
+│   └── integration/
+│       └── test_full_workflow.py
+└── .vscode/                # Configurações do VS Code
+    ├── settings.json
+    └── launch.json
+
+    #adicionar alterações no esquema como: 
+
+py2dna/
+├── venv/                    # Ambiente virtual (não versionado)
+├── compiler/                # Núcleo do compilador
+│   ├── __init__.py          # Versão do pacote
+│   ├── backend/             # Lógica molecular
+│   │   ├── dna_generator.py # Traduz AST→Sequências
+│   │   └── reaction_scheduler.py  # Gerencia tempos enzimáticos
+│   ├── frontend/            # Análise de código
+│   │   └── parser.py        # Python AST → Lógica abstrata
+│   └── utils/               # Ferramentas auxiliares
+│       ├── vienna_integration.py  # Interface com ViennaRNA
+│       └── constants.py     # Enzimas/Sequências padrão
+├── simulations/             # Ambiente de teste
+│   ├── notebooks/           # Protótipos interativos
+│   │   ├── xor_gate.ipynb   # Exemplo passo a passo
+│   │   └── pcr_simulator.ipynb
+│   └── examples/            # Códigos de exemplo
+│       └── diagnostic_kit.py  # Caso real de uso
+├── tests/                   # Testes automatizados
+│   ├── backend/             # Testes de geração de DNA
+│   │   └── test_xor_gate.py # Valida portas lógicas
+│   └── integration/         # Testes de fluxo completo
+│       └── test_compiler.py # Pipeline Python→DNA→Protocolo
+├── protocols/               # Protocolos de laboratório
+│   ├── wet_lab/             # Passos experimentais
+│   └── dry_lab/             # Configurações de simulação
+├── docs/                    # Documentação
+│   ├── tutorials/           # Para usuários
+│   └── api/                 # Para desenvolvedores
+└── .github/                 # CI/CD e gerenciamento
+    ├── workflows/
+    │   └── test.yml         # GitHub Actions
+    └── ISSUE_TEMPLATE.md    # Padrão para bugs
+
+    # Fluxo de Operação do Sensor de Campo
+
+        graph TD
+    A[Código Python] --> B[Compilação para DNA]
+    B --> C[Protocolo Experimental]
+    C --> D[Síntese de DNA]
+    D --> E[Preparação do Sensor]
+    E --> F[Teste de Campo]
+    F --> G[Leitura Óptica/Eletroquímica]
+    G --> H[Análise de Dados]
+
+ # Sensor de pH Molecular
+
+from py2dna import DNA, compile_to_protocol
+
+# Lógica do sensor
+def ph_sensor(pH: float):
+    if pH < 7.0:
+        return DNA("ACGT")  # Sinal ácido (vermelho)
+    else:
+        return DNA("TGCA")  # Sinal alcalino (azul)
+
+# Compilação
+protocol = compile_to_protocol(
+    ph_sensor,
+    inputs={"pH": 6.5},  # Valor medido pelo sensor
+    output_type="colorimetric"
+)    
+
+1. Design dos Sensores
+Alvos Moleculares
+Cultura	Patógeno	Biomarcador Molecular	Sequência Alvo (Exemplo)
+Cana-de-açúcar	Puccinia melanocephala	Gene PmK1 (quinase)	ATGTCGACCTAGGT
+Soja	Phakopsora pachyrhizi	Effector PpEC23	CTAGGCATCGATCG
+Citros	Phyllosticta citricarpa	Metabolito HST toxina	GGCTACGTAGATCA
+
+graph LR
+    A[Amostra] --> B(Cartucho)
+    B --> C{Leitor}
+    C --> D["Positivo (vermelho)"]
+    C --> E["Negativo (azul)"]
+
+# Hardware
+
+
+
+Cartucho descartável com:
+
+Zona de teste: Fitas de DNA imobilizadas
+
+Zona de controle: Sequência universal
+
+Leitor portátil:
+
+LED 470nm (azul) + Fotodiodo
+
+Saída via Bluetooth para smartphone
+
+# Química das Reações
+Mecanismo de Detecção
+Para Cana-de-açúcar:
+
+Hibridização do PmK1 → Ativação de DNAzyme → Liberação de íons Fe³⁺ → Mudança de cor (azul→vermelho)
+
+Para Soja:
+
+Ligação do PpEC23 a um aptâmero → Ativação de fluoróforo (sinal verde sob UV)
+
+Para Citros:
+
+HST toxina corta fita repórter → Liberação de partículas de ouro → Agregação (roxo visível)
+
+graph LR
+    A[Leitor Pi] -- Bluetooth --> B[App Android]
+    B --> C[Cloud]
+    C --> D[Dashboard Agricultor]
+
