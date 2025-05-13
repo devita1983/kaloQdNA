@@ -1,0 +1,12 @@
+# CITATION.cff
+cff-version: 1.2.0
+message: "KaloQdNA:"
+title: "Py2DNA: Compilador Python para DNA com Otimização Quântica"
+authors:
+  - family-names: "DeVita"
+    given-names: "Luis Cláudio"
+    orcid: "hhttps://orcid.org/0009-0003-5292-968X"  
+version: 0.1.0
+doi: "10.5281/zenodo.XXXXXXX"  
+license: MIT
+repository-code: "https://github.com/devita1983/kaloQdNA.git"
